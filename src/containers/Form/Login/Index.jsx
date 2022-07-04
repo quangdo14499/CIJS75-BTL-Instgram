@@ -74,7 +74,10 @@ export const FormLogin = () => {
         
       />
       {checkPassword && <span className='error-password'>Your password must contain between 4 and 60 characters.</span>}
+      
       <Button text='Submit' handleClick={handleSubmit}/>
+
+      <div className='goto-create'>Not registered? <a href="">Create an account</a></div>
     </form>
     </div>
   );

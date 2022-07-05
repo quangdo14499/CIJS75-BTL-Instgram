@@ -55,7 +55,7 @@ export const FormLogin = () => {
   return (
     <div id='login-container'>
         <form className='login-form'>
-        <h2>Sign In</h2>
+        <h2>Log In</h2>
       <input
         id='email-input'
         name={'email'}
@@ -75,7 +75,7 @@ export const FormLogin = () => {
       />
       {checkPassword && <span className='error-password'>Your password must contain between 4 and 60 characters.</span>}
       
-      <Button text='Submit' handleClick={handleSubmit}/>
+      <Button text='Sign In' handleClick={handleSubmit}/>
 
       <div className='goto-create'>Not registered? <a href="">Create an account</a></div>
     </form>

@@ -5,7 +5,13 @@
     font-family: sans-serif;
 }
 
-body{
+/* login */
+
+.bold {
+    font-weight: bold;
+}
+
+.login_container{
     height: 100vh;
     background: rgb(137,91,149);
     background: linear-gradient(90deg, rgba(137,91,149,1) 38%, rgba(255,38,0,1) 100%);
@@ -93,3 +99,143 @@ body{
 .goto-create a{
     color: green;
 }
+
+/* home */
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.home_container {
+    background: #fafafa;
+    display: flex;
+}
+
+.navbar {
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo svg {
+    height: 48px;
+}
+
+.search_input {
+    width: 268px;
+    height: 36px;
+    background-color: #efefef;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.search_input input {
+    margin: auto;
+    height: 36px;
+    width: 236px;
+    background-color: #efefef;
+    padding: 0 16px;
+    outline: none;
+    border: none;
+}
+
+.fa-solid {
+    position: absolute;
+}
+
+.str_container {
+    width: 468px;
+    height: 119px;
+    padding: 16px 0;
+    margin-top: 16px;
+    border: 1px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style-type: none;
+}
+
+.login_avatar {
+    height: 24px;
+    width: 24px;
+}
+
+.listpost_container {
+    margin-top: 10px;
+}
+
+.post_container {
+    background-color: #ffffff;
+    width: 470px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.post_header {
+    display: flex;
+    align-items: center;
+}
+
+.user_avatar {
+    height: 32px;
+    width: 32px;
+    border: 1px solid #efefef;
+}
+
+.user_avatar_border {
+    height: 42px;
+    width: 42px;
+    border: 2px solid black;
+}
+
+.post_body {
+    height: 587.5px;
+}
+
+.post_img {
+    height: 587.5px;
+    width: 470px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section ul{
+    display: flex;
+}
+
+.section ul li {
+    list-style-type: none;
+}
+
+.logo_user {
+    height: 56px;
+    width: 56px;
+    border: 1px solid #efefef;
+}
+
+.avt_str {
+    height: 66px;
+    width: 66px;
+    border: 2px solid black;
+}
+

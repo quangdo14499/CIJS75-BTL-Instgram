@@ -2,8 +2,41 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 // import { Input } from '../../../components/Input/Index';
 import { Button } from '../../../components/Button/Index';
+import { gql, useMutation } from '@apollo/client';
+
+const SIGN_IN = gql`
+  mutation SignIn($input: SignInInput!) {
+    signIn(data: $input) {
+      account {
+        id
+        identityNumber
+        accountName
+        firstName
+        lastName
+        email
+        birthday
+        phoneNumber
+        role
+        isActive
+        createdAt
+        updatedAt
+        deletedAt
+      }
+    }
+  }
+`;
+
 
 export const FormLogin = () => {
+  const [handleLogin] = useMutation(SIGN_IN, {
+    onCompleted(data){
+      console.log(data);
+    },
+    onError(err){
+      console.log(err);
+    },
+  });
+
   const [data, setData] = useState({
     email: {
       value: '',
@@ -17,20 +50,26 @@ export const FormLogin = () => {
     },
   });
 
+
   const [checkPassword, setCheckPassword] = useState(false)
   const [checkEmail, setCheckEmail] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
+    handleLogin({
+      variables:{
+        input: data
+      }
+    })
   };
 
-  const changeValue = (field) => (value) => {
+  const changeValue = (field) => (event) => {
     setData({
       ...data,
       [field]: {
         ...data[field],
-        value: value,
+        value: event.target.value,
       },
     });
   };
@@ -61,7 +100,7 @@ export const FormLogin = () => {
         name={'email'}
         placeholder={'Email...'}
         data={data.email}
-        handleChange={changeValue('email')}
+        onChange={changeValue('email')}
       />
       {checkEmail && <span className='error-password'>Please enter a valid email or phone number.</span>}
       <input
@@ -70,7 +109,7 @@ export const FormLogin = () => {
         placeholder={'********'}
         type={'password'}
         data={data.password}
-        handleChange={changeValue('password')}
+        onChange={changeValue('password')}
         
       />
       {checkPassword && <span className='error-password'>Your password must contain between 4 and 60 characters.</span>}

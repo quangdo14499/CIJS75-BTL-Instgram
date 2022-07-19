@@ -59,7 +59,10 @@ export const FormLogin = () => {
     console.log(data);
     handleLogin({
       variables:{
-        input: data
+        input: {
+          email: data.email.value,
+          password: data.password.value,
+        }
       }
     })
   };

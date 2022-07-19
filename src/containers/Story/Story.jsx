@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Story =(props) => {
   return (
-    <div className='story'>
+    <div key={props.id} className='story'>
         <div className="avt_str circle center">
             <img src={props.avt} className='circle logo_user' alt="" />
         </div>

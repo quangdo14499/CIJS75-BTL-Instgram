@@ -6,11 +6,11 @@ export const Account = () => {
       <div className="user_container">
         <img src="/images/avatar.jpg" className='logo_user circle' alt="" />
         <div className="user_box">
-          <div>_quangminhdo</div>
+          <div className='bold'>_quangminhdo</div>
           <div>Quang Minh Do</div>
         </div>
       </div>
-      <span>Chuyển</span>
+      <div className='text_blue bold'>Chuyển</div>
     </div>
   )
 }

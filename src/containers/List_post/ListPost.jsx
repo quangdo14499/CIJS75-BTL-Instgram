@@ -1,36 +1,52 @@
 import React from 'react'
 import { Post } from '../Post/Post'
-import { useState } from 'react'
+import { gql, useQuery } from '@apollo/client';
+
+// import { useState } from 'react
+
+const GET_LIST_POST = gql`
+query GetListPost($pagination: PaginationInput, $condition: GetListPostCondition) {
+  getListPost(pagination: $pagination, condition: $condition) {
+    data {
+      id
+      identityNumber
+      title
+      content
+      author {
+        id
+        name
+        avatar {
+          id
+          filename
+          mimetype
+          fileCategory
+        }
+      }
+      medias {
+        id
+        filename
+        mimetype
+        fileCategory
+      }
+    }
+  }
+}
+`;
 
 export const ListPost = () => {
-  const posts = [
-    { 
-      id:1,
-      avt:'/images/user_avt1.jpg',
-      name: 'hoc sinh tinh tuong',
-      img:'/images/user_img1.jpg',
-      caption: 'Khi điện thoại không đủ dung lượng tải instagram #hstt' , 
-    },
-    {
-      id:2,
-      avt:'/images/user_avt2.jpg',
-      name: 'wearvn',
-      img:'/images/user_img2.jpg',
-      caption: 'Flash sale off 50% kìa bà con ơi ' , 
-    },
-    {
-      id:3,
-      avt:'/images/user_avt3.jpg',
-      name: 'muhamadalief19',
-      img:'/images/user_img3.jpg',
-      caption: 'Skill Futsal Tutorial' , 
-    },
-  ]
+  const { data } = useQuery(GET_LIST_POST, {
+    variables: { 
+      pagination : {},
+      condition: {},
+     },
+  });
 
+  console.log(data)
+  // const [] = useState([])
 
   return (
     <div className='listpost_container'>
-      {posts.map((el) => {
+      {data.getListPost.data.map((el) => {
           return Post(el);
         })}
     </div>

@@ -113,7 +113,6 @@ export const FormLogin = () => {
         type={'password'}
         data={data.password}
         onChange={changeValue('password')}
-        
       />
       {checkPassword && <span className='error-password'>Your password must contain between 4 and 60 characters.</span>}
       

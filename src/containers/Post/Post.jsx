@@ -5,13 +5,13 @@ export const Post = (props) => {
     <div key={props.id} className='post_container'>
         <div className="post_header">
             <div>
-                <div className="user_avatar_border circle center"><img src={props.avt} className='circle user_avatar' alt=""/></div>
-                <div className="name_user bold">{props.name}</div>
+                <div className="user_avatar_border circle center"><img src="" className='circle user_avatar' alt=""/></div>
+                <div className="name_user bold">{props.author.name}</div>
             </div>
             <svg aria-label="Tùy chọn khác" className="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
         </div>
         <div className="post_body">
-            <img className='post_img' src={props.img} alt="" />
+            <img className='post_img' src={props.medias[0].filename} alt="" />
         </div>
         <div className="post_footer">
             <div className="section">
@@ -24,8 +24,8 @@ export const Post = (props) => {
             </div>
             <div className="number_like">10 lượt thích</div>
             <div className="tittle">
-                <span className='bold'>{props.name} </span>
-                {props.caption}
+                <span className='bold'>{props.author.name} </span>
+                {props.title}
             </div>
             <div className="number_comment">Xem tất cả 2 bình luận</div>
             <div className="hour_update">3 GIỜ TRƯỚC</div>
